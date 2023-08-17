@@ -2,6 +2,8 @@ package com.godknows.picpay.entities;
 
 import java.math.BigDecimal;
 
+import com.godknows.picpay.dtos.UserDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -38,6 +40,20 @@ public class User {
 	private BigDecimal balance;
 	@Enumerated(EnumType.STRING)
 	private UserType userType;
+	
+	
+	
+	public User(UserDTO dto) {
+		firstName = dto.getFirstName();
+		lastName = dto.getLastName();
+		document = dto.getDocument();
+		email = dto.getEmail();
+		password = dto.getPassword();
+		balance = dto.getBalance();
+		userType = dto.getUserType();
+	}
+	
+	
 	public long getId() {
 		return id;
 	}

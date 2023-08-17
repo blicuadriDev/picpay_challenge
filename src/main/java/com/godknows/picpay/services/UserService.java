@@ -1,11 +1,13 @@
 package com.godknows.picpay.services;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.godknows.picpay.dtos.UserDTO;
 import com.godknows.picpay.entities.User;
 import com.godknows.picpay.entities.UserType;
 import com.godknows.picpay.repositories.UserRepository;
@@ -35,6 +37,18 @@ public class UserService {
 	@Transactional
 	public void saveUser(User user) {
 		this.userRepository.save(user);
+	}
+	
+	@Transactional
+	public User createUser(UserDTO dto) {
+		User newUser = new User(dto);
+		userRepository.save(newUser);
+		return newUser;
+	}
+	
+	@Transactional(readOnly=true)
+	public List<User> findUsers(){
+		return userRepository.findAll();
 	}
 
 }
