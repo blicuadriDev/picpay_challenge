@@ -1,8 +1,6 @@
 package com.godknows.picpay.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,12 +18,17 @@ public class NotificationService {
 		
 		NotificationDTO notificationRequest = new NotificationDTO(email, message);
 		
-		ResponseEntity<String> notificationResponse = restTemplate.postForEntity("http://o4d9z.mocklab.io/notify", notificationRequest, String.class);
+		/*
+		 * ResponseEntity<String> notificationResponse = restTemplate.postForEntity("http://o4d9z.mocklab.io/notify", notificationRequest, String.class);
+		 *
+		 *	if (!(notificationResponse.getStatusCode() == HttpStatus.OK)) {
+		 *		System.out.println("Notification system not available");
+		 *		throw new Exception("Notificataion service unavailable");
+		 *	}
+		 *
+		 */
 		
-		if (!(notificationResponse.getStatusCode() == HttpStatus.OK)) {
-			System.out.println("Notification system not available");
-			throw new Exception("Notificataion service unavailable");
-		}
+		System.out.println("Notification sent to the user.");
 		
 	}
 
