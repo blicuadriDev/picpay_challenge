@@ -2,23 +2,23 @@ package com.godknows.picpay.dtos;
 
 public class ExceptionDTO {
 	
-	private String messageg;
+	private String message;
 	private String statusCode;
 	
 	public ExceptionDTO() {
 	}
 
-	public ExceptionDTO(String messageg, String statusCode) {
-		this.messageg = messageg;
+	public ExceptionDTO(String message, String statusCode) {
+		this.message = message;
 		this.statusCode = statusCode;
 	}
 
 	public String getMessageg() {
-		return messageg;
+		return message;
 	}
 
 	public void setMessageg(String messageg) {
-		this.messageg = messageg;
+		this.message = messageg;
 	}
 
 	public String getStatusCode() {
