@@ -41,8 +41,24 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private UserType userType;
 	
+	public User() {
+	}
 	
 	
+	
+	public User(String firstName, String lastName, String document, String email, String password,
+			BigDecimal balance, UserType userType) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.document = document;
+		this.email = email;
+		this.password = password;
+		this.balance = balance;
+		this.userType = userType;
+	}
+
+
+
 	public User(UserDTO dto) {
 		firstName = dto.getFirstName();
 		lastName = dto.getLastName();
